@@ -1,0 +1,17 @@
+Można umieścić komentarz i program poda błąd, ale bedzie można wprowadzać dane dalej
+1 1 1 jeden
+0 0 0 zero3
+2 2 2 dwa
+Komentarz nie przeszkadza, jest tylko prośba o dalsze wprowadzanie
+Błędne dane
+1 tylko1
+0 0 0 zero4
+2 3 tylko2
+4 5 6 to ok
+0 0 0 zero2
+7 8 9 nazwa Nazwa ma tylko jeden człon bez spacji, znowu można napisać coś bez błędów
+10 11 12 BardzoDlugieNazwyNiePrzepelniajaBuforaMax20Znakow
+0 0 0 zero1
+Zera zawsze będą na końcu
+
+r
