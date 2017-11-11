@@ -1,27 +1,31 @@
-#include <stdio.h>
-#include <string.h> //memset
+//Mateusz Okulus listopad 2017
+//Projekt PRI laboratoria nr 1
+#include <stdio.h> //konsola
 
-const int bsize = 1024;
 typedef struct
 {
   double x, y, z;
   char name[21];
 } Point;
 
-Point readPoint(const char* line);
-int compare(Point a, Point b);
-int readNewLine();
-void swap(Point array[], int i, int j);
-int isZero(Point a);
+int compare(Point a, Point b); //porównanie dwóch punktów rosnąco
+int readNewLine(); //czy wczytano pustą linię? (tylko znak nowej linii)
+void swap(Point array[], int i, int j); //zamiana 2 punktów w tablicy
+int isZero(Point a); //czy punkt jest punktem (0,0,0)
+int shouldSwap(Point a, Point b, int ascending); //czy powinno zamienić miejscami punkty a i b
 
 int main()
 {
-    Point points[80];
-    int numOfPoints = 0;
+    Point points[80];//maksimum
+    int numOfPoints = 0; //ile punktów wczytano
+    const int bsize = 1024; //rozmiar bufora
     char buffer[bsize];
-    while(!readNewLine() || numOfPoints == 0)
+    printf("Prosze podac punkty w formacie X Y Z nazwa\n")
+    //przerywamy, gdy podano pustą linię ALE wymagamy co najmniej 1 punktu(pusta linia nie przerwie gdy mamy 0 punktów)
+    //przerwiemy, gdy mamy 80 punktów(już więcej nie powinniśmy wczytać)
+    while( (!readNewLine() || numOfPoints == 0) && numOfPoints < 80 )
     {
-      Point temp;
+      Point temp; //do wczytywania
       fgets(buffer, bsize, stdin);
       if(4 == sscanf(buffer, "%lf %lf %lf %20s", &temp.x, &temp.y, &temp.z, temp.name))
       {
@@ -31,9 +35,9 @@ int main()
       else
       {
         printf("Wpisano złe dane. Prosze kontynuowac.\n");
-        //memset(&buffer, 0, sizeof(char) * bsize);
       }
     }
+    //wczytano wszystkie punkty
     printf("Sortowac rosnaco czy malejaco? [r/m]\n");
     char c = 0;
     fgets(buffer, bsize, stdin);
@@ -54,7 +58,7 @@ int main()
       {
         Point a = points[i];
         Point b = points[i+1];
-        if(!isZero(b) && (isZero(a) || ascending * compare(a, b) > 0))
+        if(shouldSwap(a, b, ascending))
         {
           swap(points, i, i+1);
         }
@@ -68,16 +72,8 @@ int main()
     }
 }
 
-Point readPoint(const char* line)
-{
-    Point p;
-    sscanf(line, "%lf %lf %lf %20s", &p.x, &p.y, &p.z, p.name);
-    return p;
-}
-
 int compare(Point a, Point b)
 {
-
     return (a.x * a.x + a.y * a.y + a.z * a.z) - (b.x * b.x + b.y * b.y + b.z * b.z);
 }
 
@@ -100,4 +96,9 @@ void swap(Point array[], int i, int j)
 int isZero(Point a)
 {
   return a.x == 0 && a.y == 0 && a.z == 0;
+}
+
+int shouldSwap(Point a, Point b, int ascending)
+{
+  return !isZero(b) && (isZero(a) || ascending * compare(a, b) > 0);
 }
