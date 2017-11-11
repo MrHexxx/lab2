@@ -1,9 +1,0 @@
-/home/mateusz/Laboratoria/PRI 2.9/main.c: In function ‘main’:
-/home/mateusz/Laboratoria/PRI 2.9/main.c:26:5: error: expected ‘;’ before ‘while’
-     while( (!readNewLine() || numOfPoints == 0) && numOfPoints < 80 )
-     ^
-/home/mateusz/Laboratoria/PRI 2.9/main.c: In function ‘shouldSwap’:
-/home/mateusz/Laboratoria/PRI 2.9/main.c:103:38: error: ‘ascending’ undeclared (first use in this function)
-   return !isZero(b) && (isZero(a) || ascending * compare(a, b) > 0);
-                                      ^
-/home/mateusz/Laboratoria/PRI 2.9/main.c:103:38: note: each undeclared identifier is reported only once for each function it appears in
