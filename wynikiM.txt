@@ -1,0 +1,17 @@
+Prosze podac punkty w formacie X Y Z nazwa
+Wpisano złe dane. Prosze kontynuowac.
+Wpisano złe dane. Prosze kontynuowac.
+Wpisano złe dane. Prosze kontynuowac.
+Wpisano złe dane. Prosze kontynuowac.
+Wpisano złe dane. Prosze kontynuowac.
+Wpisano złe dane. Prosze kontynuowac.
+Sortowac rosnaco czy malejaco? [r/m]
+BardzoDlugieNazwyNie 10.000000 11.000000 12.000000
+nazwa 7.000000 8.000000 9.000000
+to 4.000000 5.000000 6.000000
+dwa 2.000000 2.000000 2.000000
+jeden 1.000000 1.000000 1.000000
+zero3 0.000000 0.000000 0.000000
+zero4 0.000000 0.000000 0.000000
+zero2 0.000000 0.000000 0.000000
+zero1 0.000000 0.000000 0.000000

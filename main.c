@@ -20,7 +20,7 @@ int main()
     int numOfPoints = 0; //ile punktów wczytano
     const int bsize = 1024; //rozmiar bufora
     char buffer[bsize];
-    printf("Prosze podac punkty w formacie X Y Z nazwa\n")
+    printf("Prosze podac punkty w formacie X Y Z nazwa\n");
     //przerywamy, gdy podano pustą linię ALE wymagamy co najmniej 1 punktu(pusta linia nie przerwie gdy mamy 0 punktów)
     //przerwiemy, gdy mamy 80 punktów(już więcej nie powinniśmy wczytać)
     while( (!readNewLine() || numOfPoints == 0) && numOfPoints < 80 )
@@ -51,10 +51,11 @@ int main()
     int ascending = 1;
     if(c == 'm')
       ascending = -1;
-
-    for(int j = 0; j < numOfPoints - 1; j++)
+    int j;
+    for(j = 0; j < numOfPoints - 1; j++)
     {
-      for(int i = 0; i < numOfPoints - 1 - j; i++)
+      int i;	
+      for(i = 0; i < numOfPoints - 1 - j; i++)
       {
         Point a = points[i];
         Point b = points[i+1];
@@ -64,8 +65,8 @@ int main()
         }
       }
     }
-
-    for(int i = 0; i < numOfPoints; i++)
+    int i;
+    for(i = 0; i < numOfPoints; i++)
     {
       Point p = points[i];
       printf("%s %lf %lf %lf\n", p.name, p.x, p.y, p.z);
